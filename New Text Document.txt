@@ -1,0 +1,40 @@
+LAPORAN UAS COMPUTER VISION
+
+Tema : Identifikasi jenis bunga
+Teknik feature : Convolutional Neural Networks (CNN)
+Teknik Mechine Learning : Support Vector Machines (SVM)
+
+1.Dataset yang digunakan : 
+	Untuk membangun model pengenalan gambar bunga yang dapat mengklasifikasikan jenis bunga berdasarkan gambar yang diberikan,disini saya menggunakan Dataset "Flower Recognition" adalah dataset yang digunakan untuk pengenalan jenis bunga. Dataset ini terdiri dari 4242 gambar yang mewakili 5 jenis bunga yang berbeda. 
+Berikut ini penjelasan lebih detail mengenai dataset tersebut
+	1. Jumlah Gambar: 
+		Dataset ini berisi total 4242 gambar dari 5 jenis bunga yang berbeda. Setiap jenis bunga memiliki jumlah gambar yang berbeda-beda.
+	2. Jenis Bunga: 
+		Dataset ini fokus pada pengenalan jenis bunga dengan 5 kategori yang berbeda. Kategori bunga yang termasuk dalam dataset ini antara lain:
+		- Daisy (Margarita)
+		- Dandelion (Dandelion)
+		- Rose (Mawar)
+		- Sunflower (Mawar Matahari)	
+                - Tulip (Tulip)
+	3. Variasi Gambar:
+		 Setiap jenis bunga memiliki gambar-gambar yang memperlihatkan variasi pose, pencahayaan, dan latar belakang yang berbeda. Ini membantu dalam 			mempelajari karakteristik visual yang berbeda dari setiap jenis bunga.
+	4. Format Gambar: 
+		Gambar-gambar dalam dataset ini tersedia dalam format JPEG.
+	5.Metadata:
+		 Dataset ini mungkin juga menyediakan metadata tambahan seperti label yang sesuai untuk setiap gambar yang mencerminkan jenis bunga yang terdapat pada 		gambar tersebut.
+Dataset ini tersedia di platform Kaggle, yang merupakan komunitas online untuk ilmu data dan pemodelan prediktif. Dataset Flower Recognition ini telah disumbangkan oleh pengguna Kaggle dan dapat diakses secara gratis.
+
+2. Membangun Model CNN
+	-Layer pertama adalah Conv2D dengan 32 filter, ukuran filter (3, 3), dan fungsi aktivasi ReLU. Parameter input_shape=(64, 64, 3) digunakan untuk menentukan 	dimensi input gambar yang akan diproses oleh model. Ukuran gambar yang digunakan dalam contoh ini adalah 64x64 piksel dengan 3 saluran warna (RGB).
+
+	- Layer kedua adalah MaxPooling2D dengan ukuran pooling (2, 2). Layer ini digunakan untuk melakukan operasi max pooling pada output layer sebelumnya, dengan 	tujuan mengurangi ukuran spatial data.
+
+	- Layer ketiga adalah Conv2D dengan 64 filter, ukuran filter (3, 3), dan fungsi aktivasi ReLU.
+
+	- Layer keempat adalah MaxPooling2D dengan ukuran pooling (2, 2).
+
+	- Layer kelima adalah Flatten yang digunakan untuk mengubah output dari layer sebelumnya menjadi vektor satu dimensi, sehingga dapat dihubungkan dengan layer 	Dense.
+
+	- Layer keenam adalah Dense dengan 64 unit dan fungsi aktivasi ReLU. Layer ini merupakan layer fully connected atau dense layer yang menghubungkan setiap 	neuron pada layer sebelumnya dengan setiap neuron pada layer ini.
+
+	- Layer ketujuh adalah Dense dengan 5 unit dan fungsi aktivasi softmax. Layer ini merupakan output layer dengan 5 unit, yang menghasilkan probabilitas untuk 	masing-masing kelas bunga (dalam contoh ini, terdapat 5 kelas bunga). Fungsi aktivasi softmax digunakan untuk menghasilkan distribusi probabilitas pada output 	layer.
